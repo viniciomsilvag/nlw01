@@ -16,7 +16,7 @@
 
 Crie um _script_ no `package.json` para iniciar o servidor de forma mais prática.
 
-```json
+```jsonc
 {
   // ...
   "scripts": {
