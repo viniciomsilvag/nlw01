@@ -19,5 +19,7 @@ module.exports = {
     'import/extensions': 'off',
     'no-unused-vars': 'off',
     'arrow-parens': 'off',
+    'comma-dangle': 'off',
+    'no-console': 'off',
   },
 };
