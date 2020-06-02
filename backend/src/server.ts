@@ -1,12 +1,11 @@
 import express from 'express';
 
+import routes from './routes';
+
 // Instância de Express
 const app = express();
 
-// Rotas da aplicação
-app.get('/users', (request, response) => {
-  // Retorna JSON
-  response.json(['Diego', 'Cleiton', 'Robson', 'Vinicio', 'Gabriel']);
-});
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333);
