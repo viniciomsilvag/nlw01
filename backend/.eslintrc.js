@@ -14,5 +14,10 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
-  rules: {},
+  rules: {
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'no-unused-vars': 'off',
+    'arrow-parens': 'off',
+  },
 };
