@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import { resolve } from 'path';
 
 import routes from './routes';
 import mongodb from './config/mongodb';
@@ -11,6 +12,8 @@ const app = express();
 
 app.use(express.json());
 app.use(routes);
+
+app.use('/uploads', express.static(resolve(__dirname, '..', 'uploads')));
 
 // Conecta ao MongoDB
 mongodb();
