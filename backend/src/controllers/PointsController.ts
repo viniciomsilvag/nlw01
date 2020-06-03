@@ -3,6 +3,24 @@ import { Request, Response } from 'express';
 import Point from '../models/Point';
 import PointItem from '../models/PointItem';
 
+async function index(req: Request, res: Response) {
+  try {
+    const { city, uf } = req.query;
+
+    const points = await Point.find().or([{ city }, { uf }]);
+
+    console.log(points);
+
+    if (points) {
+      return res.json(points);
+    }
+
+    throw new Error();
+  } catch (e) {
+    return res.status(404).json(e);
+  }
+}
+
 async function show(req: Request, res: Response) {
   try {
     const { _id } = req.params;
@@ -70,6 +88,7 @@ async function store(req: Request, res: Response) {
 }
 
 export default {
+  index,
   show,
   store,
 };
