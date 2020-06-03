@@ -3,6 +3,27 @@ import { Request, Response } from 'express';
 import Point from '../models/Point';
 import PointItem from '../models/PointItem';
 
+async function show(req: Request, res: Response) {
+  try {
+    const { _id } = req.params;
+
+    const point = await Point.findById(_id);
+    const items = await PointItem.find({ _point_id: _id });
+
+    if (point && items) {
+      const serializedItems = await Promise.all(
+        items.map(async item => item.populate('_item_id').execPopulate())
+      );
+
+      return res.json({ point, items: serializedItems });
+    }
+
+    throw new Error();
+  } catch (e) {
+    return res.status(404).json(e);
+  }
+}
+
 async function store(req: Request, res: Response) {
   try {
     const {
@@ -49,5 +70,6 @@ async function store(req: Request, res: Response) {
 }
 
 export default {
+  show,
   store,
 };

@@ -8,6 +8,7 @@ const routes = Router();
 routes.get('/items', ItemsController.index);
 routes.post('/items/registerall', ItemsController.store);
 
+routes.get('/points/:_id', PointsController.show);
 routes.post('/points', PointsController.store);
 
 export default routes;
