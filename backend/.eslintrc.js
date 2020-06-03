@@ -22,5 +22,7 @@ module.exports = {
     'comma-dangle': 'off',
     'no-console': 'off',
     'no-underscore-dangle': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
   },
 };

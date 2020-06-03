@@ -6,7 +6,7 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    imgage: {
+    image: {
       type: String,
     },
     email: {
