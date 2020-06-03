@@ -32,4 +32,20 @@ routes.post('/items/registerall', async (req, res) => {
   }
 });
 
+routes.get('/items', async (req, res) => {
+  try {
+    const items = await Item.find();
+
+    const serializedItems = items.map((item: any) => ({
+      _id: item._id,
+      title: item.title,
+      image_url: `http://localhost:3333/uploads/${item.image}`,
+    }));
+
+    return res.json(serializedItems);
+  } catch (e) {
+    return res.status(404).json(e);
+  }
+});
+
 export default routes;

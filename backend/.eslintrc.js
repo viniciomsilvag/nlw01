@@ -21,5 +21,6 @@ module.exports = {
     'arrow-parens': 'off',
     'comma-dangle': 'off',
     'no-console': 'off',
+    'no-underscore-dangle': 'off',
   },
 };
