@@ -39,7 +39,7 @@ async function store(req: Request, res: Response) {
         )
       );
 
-      return res.json({ success: true });
+      return res.json(point);
     }
 
     throw new Error();
