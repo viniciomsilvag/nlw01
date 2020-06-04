@@ -104,6 +104,10 @@
   color: #6c6c80;
 }
 
+#page-create-point form .field select option[value='0'] {
+  display: none;
+}
+
 #page-create-point form .field input::placeholder {
   color: #a0a0b2;
 }
